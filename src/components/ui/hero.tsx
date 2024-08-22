@@ -27,8 +27,9 @@ const Hero: React.FC<SearchAndFilterProps> = ({
                 className="relative flex flex-col gap-4 items-center justify-center px-4 w-full h-full"
             >
                 <div className="h-full gap-4 md:gap-8 flex flex-col justify-between items-center px-4 w-full">
-                    <div className="text-2xl md:text-6xl pt-4 pb-0 md:pt-10 md:pb-4 font-bold dark:text-white text-center w-full">
-                        Shop from a wide variety of <FlipWords words={words} />
+                    <div className="text-lg md:text-4xl pt-4 pb-0 md:pt-10 md:pb-4 font-bold dark:text-white text-center w-full capitalize">
+                        SHOP FROM A WIDE VARIETY OF{' '}
+                        <FlipWords words={words} className="text-xl md:text-5xl text-blue-600" />
                     </div>
                     <SearchAndFilter
                         sortField={sortField}

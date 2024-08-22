@@ -7,6 +7,7 @@ import Hero from '@/components/ui/hero';
 import { GetProductResponse } from '@/utils/get-products';
 import ProductCard from '@/components/ui/product-card';
 import useProductFilterSort from '@/hooks/use-product-filter-sort';
+import EmptyIcon from '@/components/ui/empty';
 
 const Home: React.FC<GetProductResponse> = ({ products, error }) => {
     const {
@@ -35,11 +36,19 @@ const Home: React.FC<GetProductResponse> = ({ products, error }) => {
                 {error ? (
                     <div>Error fetching data: {JSON.stringify(error)} </div>
                 ) : (
-                    <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
-                        {filteredAndSortedProducts?.map(product => (
-                            <ProductCard key={product.id} {...product} />
-                        ))}
-                    </motion.div>
+                    <>
+                        {filteredAndSortedProducts?.length ? (
+                            <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
+                                {filteredAndSortedProducts?.map(product => (
+                                    <ProductCard key={product.id} {...product} />
+                                ))}
+                            </motion.div>
+                        ) : (
+                            <div className="mt-40 w-full flex justify-center">
+                                <EmptyIcon className="mx-auto" />
+                            </div>
+                        )}
+                    </>
                 )}
             </div>
         </div>
