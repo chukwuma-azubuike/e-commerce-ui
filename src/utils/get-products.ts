@@ -1,9 +1,15 @@
 import axios, { AxiosResponse } from 'axios';
-import { ProductsApiResponse } from '@/types';
+import { Product, ProductsApiResponse } from '@/types';
 
+// API_URL and other sensitive data would normally be passed as environment variables
 const API_URL = 'https://dummyjson.com/products';
 
-const getProducts = async () => {
+export interface GetProductResponse {
+    products?: Product[];
+    error?: any;
+}
+
+const getProducts = async (): Promise<GetProductResponse> => {
     try {
         const response = await axios.get<void, AxiosResponse<ProductsApiResponse>>(API_URL);
         const products = response.data.products;

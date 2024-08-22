@@ -6,18 +6,18 @@ import { cn } from '@/lib/utils';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'E-commerce UI',
-	description: 'Intuitive E-commmerce UI',
+    title: 'E-commerce UI',
+    description: 'Intuitive E-commmerce UI',
 };
 
 export default function RootLayout({
-	children,
+    children,
 }: Readonly<{
-	children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-	return (
-		<html lang="en">
-			<body className={cn('p-4',inter.className)}>{children}</body>
-		</html>
-	);
+    return (
+        <html lang="en">
+            <body className={cn('pb-4', inter.className)}>{children}</body>
+        </html>
+    );
 }
